@@ -5,7 +5,8 @@ require('dotenv').config();
 // Importar rutas
 const userRoutes = require('./routes/userRoutes');
 const cafeRoutes = require('./routes/cafeRoutes');
-const menuRoutes = require('./routes/menuRoutes'); // Importar las rutas de MenuItem
+const menuRoutes = require('./routes/menuRoutes');
+const orderItemRoutes = require('./routes/orderItemRoutes'); // Rutas de OrderItem
 
 const app = express();
 
@@ -15,7 +16,8 @@ app.use(bodyParser.json());
 // Rutas principales
 app.use('/api/users', userRoutes);
 app.use('/api/cafes', cafeRoutes);
-app.use('/api/menuitems', menuRoutes); // Agregar rutas de MenuItem
+app.use('/api/menuitems', menuRoutes);
+app.use('/api/orderitems', orderItemRoutes); // Conectar rutas de OrderItem
 
 // Ruta de prueba
 app.get('/', (req, res) => {
