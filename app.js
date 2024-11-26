@@ -4,25 +4,26 @@ require('dotenv').config();
 
 // Importar rutas
 const userRoutes = require('./routes/userRoutes');
+const cafeRoutes = require('./routes/cafeRoutes');
+const menuRoutes = require('./routes/menuRoutes'); // Importar las rutas de MenuItem
 
-// Crear la aplicación
 const app = express();
 
 // Middleware para procesar JSON
 app.use(bodyParser.json());
 
-// Ruta de prueba para verificar el servidor
+// Rutas principales
+app.use('/api/users', userRoutes);
+app.use('/api/cafes', cafeRoutes);
+app.use('/api/menuitems', menuRoutes); // Agregar rutas de MenuItem
+
+// Ruta de prueba
 app.get('/', (req, res) => {
     res.send('Welcome to Campus Café API!');
 });
 
-// Rutas de la API
-app.use('/api/users', userRoutes);
-
-// Configurar el puerto
-const PORT = process.env.PORT || 3000;
-
 // Iniciar el servidor
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });

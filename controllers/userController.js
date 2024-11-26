@@ -18,7 +18,7 @@ exports.createUser = (req, res) => {
     const { name, lastname, email, password, phone, role, alias, profilepic, address } = req.body;
     const query = `
         INSERT INTO User (name, lastname, email, password, phone, role, alias, profilepic, address)
-        VALUES (?, ?, ?, SHA2(?, 256), ?, ?, ?, ?, ?)`;
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
     db.query(query, [name, lastname, email, password, phone, role, alias, profilepic, address], (err, result) => {
         if (err) {
             console.error('Error creating user:', err.message);
