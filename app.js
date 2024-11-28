@@ -6,7 +6,10 @@ require('dotenv').config();
 const userRoutes = require('./routes/userRoutes');
 const cafeRoutes = require('./routes/cafeRoutes');
 const menuRoutes = require('./routes/menuRoutes');
-const orderItemRoutes = require('./routes/orderItemRoutes'); // Rutas de OrderItem
+const orderItemRoutes = require('./routes/orderItemRoutes');
+const orderRoutes = require('./routes/orderRoutes'); 
+const reviewRoutes = require('./routes/reviewRoutes');
+const reviewFileRoutes = require('./routes/reviewFileRoutes');
 
 const app = express();
 
@@ -17,7 +20,10 @@ app.use(bodyParser.json());
 app.use('/api/users', userRoutes);
 app.use('/api/cafes', cafeRoutes);
 app.use('/api/menuitems', menuRoutes);
-app.use('/api/orderitems', orderItemRoutes); // Conectar rutas de OrderItem
+app.use('/api/orderitems', orderItemRoutes);
+app.use('/api/orders', orderRoutes); 
+app.use('/api/reviews', reviewRoutes);
+app.use('/api/reviewfiles', reviewFileRoutes);
 
 // Ruta de prueba
 app.get('/', (req, res) => {

@@ -1,1 +1,1 @@
-SELECT * FROM user
+DELETE FROM User WHERE UserID = 3
