@@ -1,1 +1,3 @@
-DELETE FROM User WHERE UserID = 3
+SELECT * FROM orderitem
+
+

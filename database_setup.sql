@@ -40,6 +40,7 @@ CREATE TABLE MenuItem (
     FOREIGN KEY (CafeID) REFERENCES Cafe(CafeID)
 );
 
+
 -- Tabla Order
 CREATE TABLE `Order` (
     OrderID INT AUTO_INCREMENT PRIMARY KEY,
@@ -50,10 +51,8 @@ CREATE TABLE `Order` (
     confirmationCode VARCHAR(50) NOT NULL,
     UserID INT,
     CafeID INT,
-    OrderItemID INT,
     FOREIGN KEY (UserID) REFERENCES User(UserID),
-    FOREIGN KEY (CafeID) REFERENCES Cafe(CafeID),
-    FOREIGN KEY (OrderItemID) REFERENCES OrderItem(OrderItemID)
+    FOREIGN KEY (CafeID) REFERENCES Cafe(CafeID)
 );
 
 -- Tabla OrderItem
@@ -61,7 +60,9 @@ CREATE TABLE OrderItem (
     OrderItemID INT AUTO_INCREMENT PRIMARY KEY,
     quantity INT,
     price DECIMAL(10, 2),
+    OrderItemID INT,
     MenuItemID INT,
+    FOREIGN KEY (OrderItemID) REFERENCES OrderItem(OrderItemID)
     FOREIGN KEY (MenuItemID) REFERENCES MenuItem(MenuItemID)
 );
 
